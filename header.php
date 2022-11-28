@@ -24,8 +24,8 @@
           <a class="nav-link" href="directions.php">Directions</a>
         </li>
       </ul>
-      <img src="RHJ1.png" class="rounded float-end" width="40" height="40">
     </div>
+          <img src="RHJ1.png" class="rounded float-end" width="50" height="50">
   </div>
 </nav>
 <body>
