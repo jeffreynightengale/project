@@ -2,7 +2,7 @@
 
 
   <body>
-    <h2>Library</h2>
+    <h2>Movies Showing</h2>
 <div class="row row-cols-lg-6">
   <?php
   $servername = "localhost";
