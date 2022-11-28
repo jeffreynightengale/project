@@ -23,7 +23,7 @@
         <li class="nav-item">
           <a class="nav-link" href="directions.php">Directions</a>
         </li>
-  <img src="RHJ.png" class="rounded" class="rounded float-end" alt="tiny picture">
+  <img src="RHJ.png" class="rounded float-end" alt="tiny picture">
       </ul>
     </div>
   </div>
