@@ -2,7 +2,8 @@
 
 
   <body>
-    <h2>Movie Details</h2>
+    
+  
   <?php
   $servername = "localhost";
 $username = "";
@@ -16,10 +17,18 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "Select M.movieID, title, image from Movie";
+$sql = "Select movieID, title, image, starring, director, duration, summary from Movie where movieID=? ";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
 ?>
+<h1>Movie details here<h1>
+
+  
+   
+
+
+        
+        
