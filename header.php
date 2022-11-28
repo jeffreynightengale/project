@@ -15,16 +15,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.php">Movies</a>
+          <a class="nav-link active" aria-current="page" href="index.php">Movies Showing</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="employees.php">Employees</a>
+          <a class="nav-link" href="menu.php">Menu</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="managers.php">Managers</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="supervisors.php">Supervisors</a>
+          <a class="nav-link" href="directions.php">Directions</a>
         </li>
       </ul>
     </div>
