@@ -30,7 +30,7 @@ if ($result->num_rows > 0) {
          <img  src=<?=$row["image"]?> class="card-img-top" alt="...">
 
   <div  class="card-body">
-    <h5 class="card-title"><?=$row["title"]?></h5>
+    <a class="card-title" href="movie-details.php?id=<?=$row["movieID"]?>"><?=$row["title"]?></a
   </div>
       </div>
   </div>
