@@ -25,7 +25,7 @@
         </li>
       </ul>
     </div>
-          <img src="RHJ1.png" class="rounded float-end" width="50" height="50">
+          <img src="RHJ1.png" class="rounded float-end" width="65" height="65">
   </div>
 </nav>
 <body>
