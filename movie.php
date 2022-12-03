@@ -30,10 +30,6 @@ if ($result->num_rows > 0) {
          <img  src=<?=$row["Image"]?> class="card-img-top" alt="...">
 
   <div  class="card-body">
-     <form method="post" action="movie-details.php">
-        <input type="hidden" name="id" value="<?=$row["movieID"]?>" />
-        <input type="submit" value=<?=$row["Title"]?> />
-      </form>
     <a class="card-title" href="movie-details.php?id=<?=$row["movieID"]?>"><?=$row["Title"]?></a
   </div>
       </div>
