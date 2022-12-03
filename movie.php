@@ -5,19 +5,19 @@
     <h2>Movies Showing</h2>
 <div class="row row-cols-lg-6">
   <?php
-  $servername = "localhost";
-$username = "";
-$password = "";
-$dbname = "";
-  
-  
-  $conn = new mysqli($servername, $username, $password, $dbname);
+$servername = "localhost:3306";
+$username = "jeffreyn_user1";
+$password = "0w_zeP}]OVy0";
+$dbname = "jeffreyn_project";
+    
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "Select M.movieID, title, image from Movie";
+$sql = "Select M.movieID, Title, Image from Movie";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -27,10 +27,10 @@ if ($result->num_rows > 0) {
     <div class="col">
 
      <div id="card" class="card"  style="width: 15rem; height: 30rem;">
-         <img  src=<?=$row["image"]?> class="card-img-top" alt="...">
+         <img  src=<?=$row["Image"]?> class="card-img-top" alt="...">
 
   <div  class="card-body">
-    <a class="card-title" href="movie-details.php?id=<?=$row["movieID"]?>"><?=$row["title"]?></a
+    <a class="card-title" href="movie-details.php?id=<?=$row["movieID"]?>"><?=$row["Title"]?></a
   </div>
       </div>
   </div>
