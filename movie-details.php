@@ -13,12 +13,6 @@
                   <th> Duration </th>
 
                   <th> Summary</th>
-
-
-
-      
-     <th></th>
-     <th></th>
     
     </tr>
   </thead>
@@ -36,7 +30,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "Select movieID, Title, Image, Starring, Director, Duration, Dummary from Movie where movieID=? ";
+$sql = "Select movieID, Title, Image, Starring, Director, Duration, Summary from Movie where movieID=? ";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
