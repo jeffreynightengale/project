@@ -62,8 +62,8 @@ if ($result->num_rows > 0) {
       <tr>
     <td><?=$row["Title"]?></td>
     <td><?=$row["Starring"]?></td>
-       <td>$<?=$row["Director"]?></td>
-        <td>$<?=$row["Duration"]?></td>
+       <td><?=$row["Director"]?></td>
+        <td><?=$row["Duration"]?></td>
                 <td>$<?=$row["Summary"]?></td>
 
 
