@@ -1,7 +1,7 @@
 <?php require_once("header.php"); ?>
 
 
-  <body>
+  <body class="text-center">
     <h2>Movies Showing</h2>
 <div class="row row-cols-lg-6">
   <?php
