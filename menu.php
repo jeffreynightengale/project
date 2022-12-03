@@ -24,8 +24,8 @@ if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
 ?>
-    <div class="col" style="width: 50rem; height: 75rem;>
-    <div class="card">
+    <div class="col">
+    <div class="card" h-100>
          <img  src=<?=$row["image"]?> class="card-img-top" alt="...">
 
   <div  class="card-body">
