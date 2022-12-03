@@ -3,7 +3,7 @@
 <div class="text-center">
   <h1>Current Menu</h1>
 </div>
-<div class="row row-cols-lg-6">
+<div class="row row-cols-1 row-cols-md-3 g-4">
   <?php
 $servername = "localhost:3306";
 $username = "jeffreyn_user1";
