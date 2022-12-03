@@ -2,13 +2,32 @@
 
 
   <body>
+      
+<table class="table table-striped">
+  <thead>
+   
+    <tr>
+            <th> Title</th>
+            <th> Starring </th>
+            <th> Director </th>
+                  <th> Duration </th>
+
+                  <th> Summary</th>
+
+
+
+      
+     <th></th>
+     <th></th>
     
+    </tr>
+  </thead>
   
   <?php
-  $servername = "localhost";
-$username = "";
-$password = "";
-$dbname = "";
+$servername = "localhost:3306";
+$username = "jeffreyn_user1";
+$password = "0w_zeP}]OVy0";
+$dbname = "jeffreyn_project";
     
       
   $conn = new mysqli($servername, $username, $password, $dbname);
@@ -24,11 +43,38 @@ if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
 ?>
-<h1>Movie details here<h1>
 
+   <tbody>
+    
+      <tr>
+    <td><?=$row["Title"]?></td>
+    <td><?=$row["Starring"]?></td>
+       <td>$<?=$row["Director"]?></td>
+        <td>$<?=$row["Duration"]?></td>
+                <td>$<?=$row["Summary"]?></td>
+
+
+    </tr>   
+                     
+                     
+                     
+                     
+
+<?php
+  }
+} else {
+  echo "0 results";
+}
   
-   
+
+?>
+      </tbody>
+    </table>
+       <?
+      $conn->close();
+?>
 
 
         
         
+</body>
