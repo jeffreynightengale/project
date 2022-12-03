@@ -3,7 +3,7 @@
 <div class="text-center">
   <h1>Current Menu</h1>
 </div>
-<div card text-bg-primary mb-3"">
+<div class="row row-cols-1 row-cols-md-3 g-4">
   <?php
 $servername = "localhost:3306";
 $username = "jeffreyn_user1";
@@ -25,8 +25,7 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
 ?>
     <div class="col">
-
-     <div id="card" class="card"  style="width: 15rem; height: 30rem;">
+    <div class="card">
          <img  src=<?=$row["image"]?> class="card-img-top" alt="...">
 
   <div  class="card-body">
