@@ -30,7 +30,7 @@ if ($result->num_rows > 0) {
          <img  src=<?=$row["image"]?> class="card-img-top" alt="...">
 
   <div  class="card-body">
-    <a class="card-title" <?=$row["food_name"]?></a>
+    <a class="card-title"><?=$row["food_name"]?></a>
     <a <?=$row["Price"]?></a>
   </div>
       </div>
