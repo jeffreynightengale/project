@@ -17,7 +17,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "Select M.movieID, Title, Image from Movie";
+$sql = "Select movieID, Title, Image from Movie";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
