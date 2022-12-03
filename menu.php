@@ -30,7 +30,7 @@ if ($result->num_rows > 0) {
 
   <div  class="card-body">
     <a><?=$row["food_name"]?></a>
-    <a><?=$row["Price"]?></a>
+    <p><a>$<?=$row["Price"]?></a></p>
   </div>
       </div>
   </div>
