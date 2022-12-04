@@ -3,7 +3,7 @@
 
   <body class="text-center">
     <h2>Movies Showing</h2>
-<div class="row row-cols-lg-6">
+<div class="row row-cols-lg-6 row-cols-md-2">
   <?php
 $servername = "localhost:3306";
 $username = "jeffreyn_user1";
