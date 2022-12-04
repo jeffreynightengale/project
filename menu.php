@@ -26,7 +26,7 @@ if ($result->num_rows > 0) {
 ?>
     <div class="col">
     <div class="card" h-100>
-         <img  src=<?=$row["image"]?> class="card-img-top" alt="...">
+         <img  src=<?=$row["image"]?> class="card-img-top" style="height: 15vw;"alt="...">
 
   <div  class="card-body">
     <a><?=$row["food_name"]?></a>
