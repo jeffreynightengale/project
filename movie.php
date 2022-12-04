@@ -3,7 +3,6 @@
 
   <body class="text-center">
     <h2>Movies Showing</h2>
-<div class="row row-cols-1 row-cols-md-3 g-4">
   <?php
 $servername = "localhost:3306";
 $username = "jeffreyn_user1";
@@ -24,6 +23,7 @@ if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
 ?>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col">
 
      <div id="card" class="card"  style="width: 15rem; height: 30rem;">
