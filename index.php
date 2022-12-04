@@ -7,3 +7,6 @@
 <div class="text-center">
   <h1>Featured Movie:</h1>
 </div>
+<div class="text-center">
+  <img src="https://upload.wikimedia.org/wikipedia/en/d/d6/Black_Panther_%28film%29_poster.jpg" class="rounded">
+</div>
