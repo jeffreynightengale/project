@@ -58,7 +58,7 @@ if ($result->num_rows > 0) {
 ?>
 
   <div class="text-center">
-  <img src="RHJ.png" class="rounded">
+  <img src=<?=$row["Image"]?> class="rounded">
 </div>
    <tbody>
     
