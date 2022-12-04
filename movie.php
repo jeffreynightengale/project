@@ -21,7 +21,7 @@ if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
 ?>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="row row-cols-6">
     <div class="col">
 
      <div id="card" class="card"  style="width: 15rem; height: 30rem;">
