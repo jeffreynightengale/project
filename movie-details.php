@@ -112,6 +112,21 @@ Buy Ticket      </button>
                <input type="text" class="form-control" id="seat" aria-describedby="nameHelp" name="Tseat">
                <div id="nameHelp" class="form-text">Enter your seat number</div>
        </div>
+            <div class="mb-3">
+                            <label for="MemberList" class="form-label">Member</label>
+                            <select class="form-select" aria-label="Select Member" id="memberList" name="meid" >
+                          <?php
+                              $ticketaddSql = "select Name, memberID from Reward order by Name";
+                              $ticketaddResult = $conn->query($ticketaddSql);
+                              while($ticketaddRow = $ticketaddResult->fetch_assoc()) {
+                         ?>
+                               <option value="<?=$ticketaddRow['memberID']?>"><?=$ticketaddRow['Name']?></option>
+                         <?php
+                              }
+                         ?>
+                           </select>
+                       </div>
+  
 
                            <input type="hidden" name="mid" value="<?=$mid ?>">
                 <input type="hidden" name="saveType" value="Add">
