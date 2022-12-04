@@ -26,10 +26,10 @@ if ($result->num_rows > 0) {
 
      <div id="card" class="card"  style="width: 15rem; height: 30rem;">
          <img  src=<?=$row["Image"]?> class="card-img-top" alt="...">
-      </div>
   <div  class="card-body">
     <a class="card-title" href="movie-details.php?id=<?=$row["movieID"]?>"><?=$row["Title"]?></a
   </div>
+      </div>
       </div>
   </div>
 <?php
