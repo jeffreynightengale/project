@@ -131,7 +131,7 @@ Buy Ticket      </button>
                             <label for="FoodList" class="form-label">Snack</label>
                             <select class="form-select" aria-label="Select Snack" id="foodList" name="fid" >
                           <?php
-                              $snackaddSql = "select Food_name, foodID from Menu order by Food";
+                              $snackaddSql = "select Food_name, foodID from Menu order by Food_name";
                               $snackaddResult = $conn->query($snackaddSql);
                               while($snackaddRow = $snackaddResult->fetch_assoc()) {
                          ?>
