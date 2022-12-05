@@ -24,7 +24,7 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
 ?>
     <div class="col">
-width: 15rem; height: 30rem;
+
      <div id="card" class="card">
          <img  src=<?=$row["Image"]?> class="card-img-top" style="height: 30vw;" alt="...">
   <div  class="card-body">
