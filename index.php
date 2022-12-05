@@ -86,3 +86,4 @@ if ($conn->connect_error) {
 
 
 </body>
+    <?php require_once('footer.php'); ?>
