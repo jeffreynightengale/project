@@ -85,4 +85,3 @@ if ($conn->connect_error) {
 
 
 </body>
-Footer
