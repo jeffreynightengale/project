@@ -42,11 +42,12 @@ if ($conn->connect_error) {
 
     
     
-    
+    <div class="text-center">
      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addMember">
         Become a Member!
       </button>
-
+</div>
+        
       <!-- Modal -->
       <div class="modal fade" id="addMember" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addMemberLabel" aria-hidden="true">
         <div class="modal-dialog">
