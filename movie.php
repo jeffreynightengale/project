@@ -25,7 +25,7 @@ if ($result->num_rows > 0) {
 ?>
     <div class="col">
 
-     <div id="card" class="card" style="height: 30;">
+     <div id="card" class="card" style="height: 30rv;">
          <img  src=<?=$row["Image"]?> class="card-img-top" alt="...">
   <div  class="card-body">
     <a class="card-title" href="movie-details.php?id=<?=$row["movieID"]?>"><?=$row["Title"]?></a
