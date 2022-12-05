@@ -36,7 +36,7 @@ if ($conn->connect_error) {
         
   switch ($_POST['saveType']) {
  case 'Add':
-      $sqlAdd = "insert into Ticket (MovieID, MemberID, FoodID, seat, showtime) value (?, ?, ?, ?, ?, ?)";
+      $sqlAdd = "insert into Ticket (MovieID, MemberID, foodID, seat, showtime) value (?, ?, ?, ?, ?, ?)";
       $stmtAdd = $conn->prepare($sqlAdd);
     $stmtAdd->bind_param("iiiss", $_POST['mid'], $_POST['meid'], $_POST['fid'], $_POST['Tseat'], $_POST['Tshowtime']);
     $stmtAdd->execute();
@@ -130,11 +130,11 @@ Buy Ticket      </button>
                             <label for="FoodList" class="form-label">Snack</label>
                             <select class="form-select" aria-label="Select Snack" id="foodList" name="fid" >
                           <?php
-                              $snackaddSql = "select food_name, FoodID from Menu order by Food";
+                              $snackaddSql = "select food_name, foodID from Menu order by Food";
                               $snackaddResult = $conn->query($snackaddSql);
                               while($snackaddRow = $snackaddResult->fetch_assoc()) {
                          ?>
-                               <option value="<?=$snackaddRow['FoodID']?>"><?=$snackaddRow['food_name']?></option>
+                               <option value="<?=$snackaddRow['foodID']?>"><?=$snackaddRow['food_name']?></option>
                          <?php
                               }
                          ?>
