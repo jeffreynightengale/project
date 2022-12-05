@@ -36,7 +36,7 @@ if ($conn->connect_error) {
         
   switch ($_POST['saveType']) {
  case 'Add':
-      $sqlAdd = "insert into Ticket (movieID, memberID, foodID, seat, showtime) value (?, ?, ?, ?, ?, ?)";
+      $sqlAdd = "insert into Ticket (movieID, memberID, foodID, seat, showtime) value (?, ?, ?, ?, ?)";
       $stmtAdd = $conn->prepare($sqlAdd);
     $stmtAdd->bind_param("iiiss", $_POST['mid'], $_POST['meid'], $_POST['fid'], $_POST['Tseat'], $_POST['Tshowtime']);
     $stmtAdd->execute();
