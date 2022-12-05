@@ -37,7 +37,7 @@ if ($conn->connect_error) {
   <h1>Featured Movie:</h1>
 </div>
 <div class="text-center">
-  <img src="https://upload.wikimedia.org/wikipedia/en/d/d6/Black_Panther_%28film%29_poster.jpg" class="rounded">
+  <img src="https://m.media-amazon.com/images/M/MV5BNTM4NjIxNmEtYWE5NS00NDczLTkyNWQtYThhNmQyZGQzMjM0XkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_FMjpg_UX1000_.jpg" class="rounded">
 </div>
 
     
