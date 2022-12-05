@@ -126,7 +126,20 @@ Buy Ticket      </button>
                          ?>
                            </select>
                        </div>
-  
+         <div class="mb-3">
+                            <label for="FoodList" class="form-label">Snack</label>
+                            <select class="form-select" aria-label="Select Snack" id="foodList" name="fid" >
+                          <?php
+                              $snackaddSql = "select food_name, FoodID from Menu order by Food";
+                              $snackaddResult = $conn->query($snackaddSql);
+                              while($snackaddRow = $snackaddResult->fetch_assoc()) {
+                         ?>
+                               <option value="<?=$snackaddRow['FoodID']?>"><?=$snackaddRow['food_name']?></option>
+                         <?php
+                              }
+                         ?>
+                           </select>
+                       </div>
 
                            <input type="hidden" name="mid" value="<?=$mid ?>">
                 <input type="hidden" name="saveType" value="Add">
