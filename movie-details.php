@@ -58,7 +58,7 @@ if ($result->num_rows > 0) {
 ?>
 
   <div class="text-center">
-  <img src=<?=$row["Image"]?> class="rounded">
+  <img src=<?=$row["Image"]?> style="height: 30vw;" class="rounded">
 </div>
    <tbody>
     
