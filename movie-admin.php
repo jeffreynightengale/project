@@ -79,6 +79,9 @@ if ($result->num_rows > 0) {
  <td>
   </body>
     <?php require_once("footer.php"); ?>
+   <?
+      $conn->close();
+?>
 
 }
     }
