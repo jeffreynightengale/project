@@ -50,6 +50,7 @@ if ($conn->connect_error) {
    $mid = $_GET['id'];
   
 $sql = "Select movieID, Title, Image, Starring, Director, Duration, Summary from Movie where movieID=" . $mid;
+  echo $sql;
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
