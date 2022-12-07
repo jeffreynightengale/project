@@ -1,4 +1,4 @@
-<?php require_once("header.php"); ?>
+<?php require_once("header-admin.php"); ?>
 
 
   <body>
@@ -77,3 +77,6 @@ if ($result->num_rows > 0) {
                 <td><?=$row["Trailer"]?></td>
 
  <td>
+  </body>
+    <?php require_once("footer.php"); ?>
+
