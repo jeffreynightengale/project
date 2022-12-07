@@ -22,6 +22,9 @@
         <li class="nav-item">
           <a class="nav-link" href="menu.php">Menu</a>
         </li>
+         <li class="nav-item">
+          <a class="nav-link" href="admin-login.php">Admin</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="directions.php">Directions</a>
         </li>
