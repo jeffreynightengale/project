@@ -58,7 +58,7 @@ if ($result->num_rows > 0) {
 ?>
 
   <div class="text-center">
-  <img src=<?=$row["Trailer"]?> style="height: 30vw;" class="rounded">
+  <src=<?=$row["Trailer"]?> style="height: 30vw;" class="rounded">
 </div>
    <tbody>
     
