@@ -57,7 +57,7 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
 ?>
 
-  <div style="text-align:center">
+  <div style="text-align:center" controls autoplay>
 <iframe align="center" width="560" height="315" src="<?=$row["Trailer"]?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 </div>
