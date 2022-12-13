@@ -86,9 +86,7 @@ if ($result->num_rows > 0) {
 ?>
       </tbody>
     </table>
-    
-<iframe align="center" width="560" height="315" src="https://www.youtube.com/embed/_Z3QKkl1WyM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    
+       
     
     
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTicket">
