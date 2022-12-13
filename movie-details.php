@@ -57,8 +57,8 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
 ?>
 
-  <div class="text-center">
-  <src=<?=$row["Trailer"]?> style="height: 30vw;" class="rounded">
+  <div style="text-align:center">
+  <source src=<?=$row["Trailer"]?> style="height: 30vw;" class="rounded">
 </div>
    <tbody>
     
