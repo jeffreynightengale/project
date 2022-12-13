@@ -58,7 +58,7 @@ if ($result->num_rows > 0) {
 ?>
 
   <div style="text-align:center">
-<iframe align="center" width="560" height="315" src=<?=$row["Trailer"]?> frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe align="center" width="560" height="315" src=["Trailer"] frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 </div>
    <tbody>
