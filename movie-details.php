@@ -49,7 +49,7 @@ if ($conn->connect_error) {
     
    $mid = $_GET['id'];
   
-$sql = "Select movieID, Title, Image, Starring, Director, Duration, Summary from Movie where movieID=" . $mid;
+$sql = "Select movieID, Title, Image, Starring, Director, Duration, Summary, Trailer from Movie where movieID=" . $mid;
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -58,7 +58,7 @@ if ($result->num_rows > 0) {
 ?>
 
   <div class="text-center">
-  <img src=<?=$row["Image"]?> style="height: 30vw;" class="rounded">
+  <img src=<?=$row["Trailer"]?> style="height: 30vw;" class="rounded">
 </div>
    <tbody>
     
