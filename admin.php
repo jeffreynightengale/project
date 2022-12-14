@@ -78,7 +78,7 @@
 
           if(values == "YOUR PASSWORD") {
 
-            location ="DESTINATION";
+            location ="movie-admin.php";
 
           }
 
