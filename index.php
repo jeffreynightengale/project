@@ -55,7 +55,7 @@ $sql = "Select movieID, Title, Image from Movie";
   <!-- The slideshow -->
     <div class="carousel-item active" style="background-image: url('uploads/<?php echo $Image; ?>')">>
     </div>
-                    
+         }           
   <!-- Left and right controls -->
   <a class="carousel-control-prev" href="#demo" data-slide="prev">
     <span class="carousel-control-prev-icon"></span>
