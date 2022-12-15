@@ -48,7 +48,7 @@ if ($conn->connect_error) {
   <!-- The slideshow -->
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="la.jpg" alt="Los Angeles">
+      <img src="src=<?=$row["Image"]?>">
     </div>
   </div>
 
