@@ -66,7 +66,6 @@ $sql = "Select movieID, Title, Image from Movie";
 
 </div>
 <?php
-  }
 } else {
   echo "0 results";
 }
