@@ -55,7 +55,7 @@ if ($result->num_rows > 0) {
 ?>
   
   <!-- The slideshow -->
-    <div class="carousel-item active" style="background-image: <?=$row["image"]?>')">>
+    <div class="carousel-item active" style="background-image: <?=$row["image"]?>">
     </div>
       <?php } } ?>         
   <!-- Left and right controls -->
