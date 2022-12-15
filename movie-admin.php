@@ -60,7 +60,7 @@ if ($conn->connect_error) {
   }
 }
 
-$sql = "Select movieID, Title, Image, Starring, Director, Duration, Summary from Movie";
+$sql = "Select movieID, Title, Image, Starring, Director, Duration, Summary, Trailer from Movie";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -96,7 +96,24 @@ if ($result->num_rows > 0) {
                            <label for="editMovie<?=$row["movieid"]?>Name" class="form-label">Starring</label>
                           <input type="text" class="form-control" id="editManager<?=$row["movieid"]?>Name" aria-describedby="editMovie<?=$row["movieid"]?>Help" name="mStarring" value="<?=$row['Starring']?>">
                           <div id="editMovie<?=$row["movieid"]?>Help" class="form-text">Add actors.</div>
-  </body>
+                            <input type="hidden" name="mid" value="<?=$row['movieid']?>">
+                        <input type="hidden" name="saveType" value="Edit">
+                        <input type="submit" class="btn btn-primary" value="Submit">
+                            </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <form method="post" action="">
+                <input type="hidden" name="mid" value="<?=$row["movieid"]?>" />
+                <input type="hidden" name="saveType" value="Delete">
+                <input type="submit" class="btn" onclick="return confirm('Are you sure?')" value="Delete">
+              </form>
+            </td>
+          </tr>
+
     }
     <?php require_once("footer.php"); ?>
    <?php
