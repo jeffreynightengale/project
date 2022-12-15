@@ -14,29 +14,7 @@ $dbname = "jeffreyn_project";
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-    ?>
-    
-      <h2>Employee</h2>
-    
-<table class="table table-striped">
-  <thead>
-    <tr>
-  
-            <th> Title</th>
-            <th> Starring </th>
-            <th> Director </th>
-            <th> Duration </th>
-            <th> Summary</th>
-       <th> Image </th>
-            <th> Trailer</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php
-   
-   if ($_SERVER["REQUEST_METHOD"] == "POST") {
+     if ($_SERVER["REQUEST_METHOD"] == "POST") {
   switch ($_POST['saveType']) {
        case 'Add':
       $sqlAdd = "insert into Movie (Title, Starring, Director, Duration, Summary, Image, Trailer) value (?, ?, ?, ?, ?, ?, ?)";
@@ -60,8 +38,29 @@ if ($conn->connect_error) {
       echo '<div class="alert alert-success" role="alert">Movie deleted.</div>';
       break;
   }
-}
-
+     }
+    ?>
+    
+      <h2>Employee</h2>
+    
+<table class="table table-striped">
+  <thead>
+    <tr>
+  
+            <th> Title</th>
+            <th> Starring </th>
+            <th> Director </th>
+            <th> Duration </th>
+            <th> Summary</th>
+       <th> Image </th>
+            <th> Trailer</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php
+ 
 $sql = "Select movieID, Title, Image, Starring, Director, Duration, Summary, Trailer from Movie";
 $result = $conn->query($sql);
 
