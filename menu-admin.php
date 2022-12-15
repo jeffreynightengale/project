@@ -15,25 +15,25 @@ if ($conn->connect_error) {
      if ($_SERVER["REQUEST_METHOD"] == "POST") {
   switch ($_POST['saveType']) {
        case 'Add':
-      $sqlAdd = "insert into Movie (Title, Starring, Director, Duration, Summary, Image, Trailer) value (?, ?, ?, ?, ?, ?, ?)";
+      $sqlAdd = "insert into Menu (Food_name, Price, image) value (?, ?, ?)";
       $stmtAdd = $conn->prepare($sqlAdd);
-    $stmtAdd->bind_param("sssssss", $_POST['mTitle'], $_POST['mStarring'], $_POST['mDirector'], $_POST['mDuration'], $_POST['mSummary'], $_POST['mImage'], $_POST['mTrailer']);
+    $stmtAdd->bind_param("sss", $_POST['mFood'], $_POST['mPrice'], $_POST['mImage']);
     $stmtAdd->execute();
-      echo '<div class="alert alert-success" role="alert">Movie added.</div>';
+      echo '<div class="alert alert-success" role="alert">Food added.</div>';
       break;
     case 'Edit':
-      $sqlEdit = "update Movie set Title=?, Starring=?, Director=?, Duration=?, Summary=?, Image=?, Trailer=? where movieID=?";
+      $sqlEdit = "update Menu set Food_name=?, Price=?, image=? where foodID=?";
       $stmtEdit = $conn->prepare($sqlEdit);
-      $stmtEdit->bind_param("sssssssi", $_POST['mTitle'], $_POST['mStarring'], $_POST['mDirector'], $_POST['mDuration'], $_POST['mSummary'], $_POST['mImage'], $_POST['mTrailer'], $_POST['mid']);
+      $stmtEdit->bind_param("sssi", $_POST['mFood'], $_POST['mPrice'], $_POST['mImage'], $_POST['mid']);
       $stmtEdit->execute();
-      echo '<div class="alert alert-success" role="alert">Movie edited.</div>';
+      echo '<div class="alert alert-success" role="alert">Food edited.</div>';
       break;
     case 'Delete':
-      $sqlDelete = "delete from Movie where MovieID=?";
+      $sqlDelete = "delete from Menu where foodID=?";
       $stmtDelete = $conn->prepare($sqlDelete);
       $stmtDelete->bind_param("i", $_POST['mid']);
       $stmtDelete->execute();
-      echo '<div class="alert alert-success" role="alert">Movie deleted.</div>';
+      echo '<div class="alert alert-success" role="alert">Food deleted.</div>';
       break;
   }
      }
@@ -43,14 +43,9 @@ if ($conn->connect_error) {
 <table class="table table-striped">
   <thead>
     <tr>
-  
-            <th> Title</th>
-            <th> Starring </th>
-            <th> Director </th>
-            <th> Duration </th>
-            <th> Summary</th>
-       <th> Image </th>
-            <th> Trailer</th>
+            <th>Food</th>
+            <th>Price</th>
+       <th>Image</th>
       <th></th>
       <th></th>
     </tr>
@@ -58,7 +53,7 @@ if ($conn->connect_error) {
   <tbody>
     <?php
  
-$sql = "Select movieID, Title, Image, Starring, Director, Duration, Summary, Trailer from Movie";
+$sql = "Select foodID, Food_name, Price Image from Menu";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -66,54 +61,35 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
 ?>
   <tr>
-    <td><?=$row["Title"]?></td>
-    <td><?=$row["Starring"]?></td>
-       <td><?=$row["Director"]?></td>
-        <td><?=$row["Duration"]?></td>
-                <td><?=$row["Summary"]?></td>
-                    <td><?=$row["Image"]?></td>
-                <td><?=$row["Trailer"]?></td>
+    <td><?=$row["Food_name"]?></td>
+    <td><?=$row["Price"]?></td>
+       <td><?=$row["Image"]?></td>
  <td>
-              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editMovie<?=$row["movieID"]?>">
+              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editMenu<?=$row["foodID"]?>">
                 Edit
               </button>
-              <div class="modal fade" id="editMovie<?=$row["movieID"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editMovie<?=$row["movieID"]?>Label" aria-hidden="true">
+              <div class="modal fade" id="editMenu<?=$row["foodID"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editMenu<?=$row["foodID"]?>Label" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="editMovie<?=$row["movieID"]?>Label">Edit Movie</h1>
+                      <h1 class="modal-title fs-5" id="editMenu<?=$row["foodID"]?>Label">Edit Menu</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                       <form method="post" action="">
                         <div class="mb-3">
-                          <label for="editMovie<?=$row["movieID"]?>Name" class="form-label">Title</label>
-                          <input type="text" class="form-control" id="editMovie<?=$row["movieID"]?>Name" aria-describedby="editMovie<?=$row["movieID"]?>Help" name="mTitle" value="<?=$row['Title']?>">
-                          <div id="editMovie<?=$row["movieID"]?>Help" class="form-text">Enter the new title.</div>
+                          <label for="editMenu<?=$row["foodID"]?>Name" class="form-label">Food</label>
+                          <input type="text" class="form-control" id="editMenu<?=$row["foodID"]?>Name" aria-describedby="editMenu<?=$row["menuID"]?>Help" name="mFood" value="<?=$row['Food_name']?>">
+                          <div id="editMenu<?=$row["foodID"]?>Help" class="form-text">Enter the new food name.</div>
                           <div class="mb-3">
-                           <label for="editMovie<?=$row["movieID"]?>Starring" class="form-label">Starring</label>
-                          <input type="text" class="form-control" id="editMovie<?=$row["movieID"]?>Name" aria-describedby="editMovie<?=$row["movieID"]?>Help" name="mStarring" value="<?=$row['Starring']?>">
-                          <div id="editMovie<?=$row["movieID"]?>Help" class="form-text">Add actors.</div>
-                             <div class="mb-3">
-                          <label for="editMovie<?=$row["movieID"]?>Director" class="form-label">Director</label>
-                          <input type="text" class="form-control" id="editMovie<?=$row["movieID"]?>Director" aria-describedby="editMovie<?=$row["movieID"]?>Help" name="mDirector" value="<?=$row['Director']?>">
-                          <div id="editMovie<?=$row["movieID"]?>Help" class="form-text">Enter the new director.</div>
+                           <label for="editMenu<?=$row["foodID"]?>Price" class="form-label">Price</label>
+                          <input type="text" class="form-control" id="editMenu<?=$row["foodID"]?>Price" aria-describedby="editMenu<?=$row["foodID"]?>Help" name="mPrice" value="<?=$row['Price']?>">
+                          <div id="editMenu<?=$row["foodID"]?>Help" class="form-text">Change price.</div>
                           <div class="mb-3">
-                           <label for="editMovie<?=$row["movieID"]?>Duration" class="form-label">Duration</label>
-                          <input type="text" class="form-control" id="editMovie<?=$row["movieID"]?>Duration" aria-describedby="editMovie<?=$row["movieID"]?>Help" name="mDuration" value="<?=$row['Duration']?>">
-                          <div id="editMovie<?=$row["movieID"]?>Help" class="form-text">Edit duration.</div>
-                             <div class="mb-3">
-                          <label for="editMovie<?=$row["movieID"]?>Summary" class="form-label">Summary</label>
-                          <input type="text" class="form-control" id="editMovie<?=$row["movieID"]?>Summary" aria-describedby="editMovie<?=$row["movieID"]?>Help" name="mSummary" value="<?=$row['Summary']?>">
-                          <div id="editMovie<?=$row["movieID"]?>Help" class="form-text">Enter the new summary.</div>
-                          <div class="mb-3">
-                           <label for="editMovie<?=$row["movieID"]?>Image" class="form-label">Image</label>
-                          <input type="text" class="form-control" id="editMovie<?=$row["movieID"]?>Image" aria-describedby="editMovie<?=$row["movieID"]?>Help" name="mImage" value="<?=$row['Image']?>">
-                          <div id="editMovie<?=$row["movieID"]?>Help" class="form-text">Add image url.</div>
-                            <label for="editMovie<?=$row["movieID"]?>Trailer" class="form-label">Trailer</label>
-                          <input type="text" class="form-control" id="editMovie<?=$row["movieID"]?>Name" aria-describedby="editMovie<?=$row["movieID"]?>Help" name="mTrailer" value="<?=$row['Trailer']?>">
-                          <div id="editMovie<?=$row["movieID"]?>Help" class="form-text">Add trailer.</div>
-                            <input type="hidden" name="mid" value="<?=$row['movieID']?>">
+                           <label for="editMenu<?=$row["foodID"]?>Image" class="form-label">Image</label>
+                          <input type="text" class="form-control" id="editMenu<?=$row["foodID"]?>Image" aria-describedby="editMenu<?=$row["foodID"]?>Help" name="mImage" value="<?=$row['image']?>">
+                          <div id="editMenu<?=$row["foodID"]?>Help" class="form-text">Add image url.</div>
+                            <input type="hidden" name="mid" value="<?=$row['foodID']?>">
                         <input type="hidden" name="saveType" value="Edit">
                         <input type="submit" class="btn btn-primary" value="Submit">
                             </form>
@@ -124,7 +100,7 @@ if ($result->num_rows > 0) {
             </td>
             <td>
               <form method="post" action="">
-                <input type="hidden" name="mid" value="<?=$row["movieID"]?>" />
+                <input type="hidden" name="mid" value="<?=$row["foodID"]?>" />
                 <input type="hidden" name="saveType" value="Delete">
                 <input type="submit" class="btn" onclick="return confirm('Are you sure?')" value="Delete">
               </form>
@@ -141,54 +117,34 @@ $conn->close();
       </table>
       <br />
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addMovie">
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addMenu">
         Add New
       </button>
 
       <!-- Modal -->
-      <div class="modal fade" id="addMovie" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addMovieLabel" aria-hidden="true">
+      <div class="modal fade" id="addMenu" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addMenuLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="addMovieLabel">Add Movie</h1>
+              <h1 class="modal-title fs-5" id="addMenuLabel">Add Menu Item</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <form method="post" action="">
                 <div class="mb-3">
-                  <label for="movieTitle" class="form-label">Movie Title</label>
-                  <input type="text" class="form-control" id="movieTitle" aria-describedby="nameHelp" name="mTitle">
-                  <div id="nameHelp" class="form-text">Enter the movie's title.</div>
+                  <label for="foodName" class="form-label">Food</label>
+                  <input type="text" class="form-control" id="foodName" aria-describedby="nameHelp" name="mName">
+                  <div id="nameHelp" class="form-text">Enter the food.</div>
                 </div>
                 <div class="mb-3">
-                  <label for="movieStarring" class="form-label">Movie Starring</label>
-                  <input type="text" class="form-control" id="movieStarring" aria-describedby="nameHelp" name="mStarring">
-                  <div id="nameHelp" class="form-text">Enter the movie's cast.</div>
+                  <label for="menuPrice" class="form-label">Price</label>
+                  <input type="text" class="form-control" id="menuPrice" aria-describedby="nameHelp" name="mPrice">
+                  <div id="nameHelp" class="form-text">Enter the food's cost.</div>
                 </div>
                 <div class="mb-3">
-                  <label for="movieDirector" class="form-label">Movie Director</label>
-                  <input type="text" class="form-control" id="movieDirector" aria-describedby="nameHelp" name="mDirector">
-                  <div id="nameHelp" class="form-text">Enter the movie's director.</div>
-                </div>
-                <div class="mb-3">
-                  <label for="movieDuration" class="form-label">Movie Duration</label>
-                  <input type="text" class="form-control" id="movieDuration" aria-describedby="nameHelp" name="mDuration">
-                  <div id="nameHelp" class="form-text">Enter the movie's duration (ex. #h #m).</div>
-                </div>
-                <div class="mb-3">
-                  <label for="movieSummary" class="form-label">Movie Summary</label>
-                  <input type="text" class="form-control" id="movieSummary" aria-describedby="nameHelp" name="mSummary">
-                  <div id="nameHelp" class="form-text">Enter the movie's summary.</div>
-                </div>
-                <div class="mb-3">
-                  <label for="movieImage" class="form-label">Movie Image</label>
-                  <input type="text" class="form-control" id="movieImage" aria-describedby="nameHelp" name="mImage">
-                  <div id="nameHelp" class="form-text">Enter the movie's picture.</div>
-                </div>
-                <div class="mb-3">
-                  <label for="movieTrailer" class="form-label">Movie Trailer</label>
-                  <input type="text" class="form-control" id="movieTrailer" aria-describedby="nameHelp" name="mTrailer">
-                  <div id="nameHelp" class="form-text">Enter the movie's trailer.</div>
+                  <label for="menuImage" class="form-label">Food Image</label>
+                  <input type="text" class="form-control" id="menuImage" aria-describedby="nameHelp" name="mImage">
+                  <div id="nameHelp" class="form-text">Enter the food's picture.</div>
                 </div>
                 <input type="hidden" name="saveType" value="Add">
                 <button type="submit" class="btn btn-primary">Submit</button>
