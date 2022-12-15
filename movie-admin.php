@@ -80,8 +80,12 @@ if ($result->num_rows > 0) {
   </body>
     }
     <?php require_once("footer.php"); ?>
-   <?
-      $conn->close();
+   <?php
+  }
+} else {
+  echo "0 results";
+}
+$conn->close();
 ?>
 }
 }
