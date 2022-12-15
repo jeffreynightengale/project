@@ -39,7 +39,7 @@ if ($conn->connect_error) {
 
 $sql = "Select movieID, Title, Image from Movie";
 $result = $conn->query($sql);
-while ($DataRows = $stmt->fetch()) {
+while ($DataRows = $result->fetch()) {
                       $Image = $DataRows["Image"];
 }
 if ($result->num_rows > 0) {
