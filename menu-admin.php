@@ -63,7 +63,7 @@ if ($result->num_rows > 0) {
   <tr>
     <td><?=$row["Food_name"]?></td>
     <td><?=$row["Price"]?></td>
-       <td><?=$row["Image"]?></td>
+       <td><?=$row["image"]?></td>
  <td>
               <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editMenu<?=$row["foodID"]?>">
                 Edit
