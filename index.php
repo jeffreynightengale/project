@@ -39,12 +39,11 @@ if ($conn->connect_error) {
 
 $sql = "Select movieID, Title, Image from Movie";
 $result = $conn->query($sql);
-while ($DataRows = $result->fetch()) {
-                      $Image = $DataRows["Image"];
-}
+                   
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
+    $Image = $DataRows["Image"];
 ?>
 <div id="demo" class="carousel slide" data-ride="carousel">
 
