@@ -75,8 +75,27 @@ if ($result->num_rows > 0) {
                 <td><?=$row["Summary"]?></td>
                     <td><?=$row["Image"]?></td>
                 <td><?=$row["Trailer"]?></td>
-
  <td>
+              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editMovie<?=$row["movieid"]?>">
+                Edit
+              </button>
+              <div class="modal fade" id="editMovie<?=$row["movieid"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editMovie<?=$row["movieid"]?>Label" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="editMovie<?=$row["movieid"]?>Label">Edit Movie</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form method="post" action="">
+                        <div class="mb-3">
+                          <label for="editMovie<?=$row["movieid"]?>Name" class="form-label">Title</label>
+                          <input type="text" class="form-control" id="editManager<?=$row["movieid"]?>Name" aria-describedby="editMovie<?=$row["movieid"]?>Help" name="mTitle" value="<?=$row['Title']?>">
+                          <div id="editMovie<?=$row["movieid"]?>Help" class="form-text">Enter the new title.</div>
+                          <div class="mb-3">
+                           <label for="editMovie<?=$row["movieid"]?>Name" class="form-label">Starring</label>
+                          <input type="text" class="form-control" id="editManager<?=$row["movieid"]?>Name" aria-describedby="editMovie<?=$row["movieid"]?>Help" name="mStarring" value="<?=$row['Starring']?>">
+                          <div id="editMovie<?=$row["movieid"]?>Help" class="form-text">Add actors.</div>
   </body>
     }
     <?php require_once("footer.php"); ?>
