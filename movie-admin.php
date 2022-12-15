@@ -1,6 +1,4 @@
 <?php require_once("header-admin.php"); ?>
-
-
   <body>
        <?php
 $servername = "localhost:3306";
