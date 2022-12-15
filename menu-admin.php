@@ -53,7 +53,7 @@ if ($conn->connect_error) {
   <tbody>
     <?php
  
-$sql = "Select foodID, Food_name, Price, Image from Menu";
+$sql = "Select foodID, Food_name, Price, image from Menu";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
