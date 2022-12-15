@@ -36,6 +36,15 @@ if ($conn->connect_error) {
  
   }
 }
+?>
+ <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                  <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                  </ol>
+                  <div class="carousel-inner" role="listbox">
+   <?php
 
 $sql = "Select movieID, Title, Image from Movie";
 $result = $conn->query($sql);
@@ -45,19 +54,12 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
     $Image = $row["Image"];
 ?>
-<div id="demo" class="carousel slide" data-ride="carousel">
-
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
   
   <!-- The slideshow -->
     <div class="carousel-item active" style="background-image: url('uploads/<?php echo $Image; ?>')">>
     </div>
-
+<?php } ?>
+   </div>
   <!-- Left and right controls -->
   <a class="carousel-control-prev" href="#demo" data-slide="prev">
     <span class="carousel-control-prev-icon"></span>
