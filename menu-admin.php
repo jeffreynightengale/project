@@ -86,8 +86,8 @@ if ($result->num_rows > 0) {
                           <input type="text" class="form-control" id="editMenu<?=$row["foodID"]?>Price" aria-describedby="editMenu<?=$row["foodID"]?>Help" name="mPrice" value="<?=$row['Price']?>">
                           <div id="editMenu<?=$row["foodID"]?>Help" class="form-text">Change price.</div>
                           <div class="mb-3">
-                           <label for="editMenu<?=$row["foodID"]?>Image" class="form-label">Image</label>
-                          <input type="text" class="form-control" id="editMenu<?=$row["foodID"]?>Image" aria-describedby="editMenu<?=$row["foodID"]?>Help" name="mImage" value="<?=$row['image']?>">
+                           <label for="editMenu<?=$row["foodID"]?>image" class="form-label">Image</label>
+                          <input type="text" class="form-control" id="editMenu<?=$row["foodID"]?>image" aria-describedby="editMenu<?=$row["foodID"]?>Help" name="mImage" value="<?=$row['image']?>">
                           <div id="editMenu<?=$row["foodID"]?>Help" class="form-text">Add image url.</div>
                             <input type="hidden" name="mid" value="<?=$row['foodID']?>">
                         <input type="hidden" name="saveType" value="Edit">
