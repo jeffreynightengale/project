@@ -47,7 +47,7 @@ if ($conn->connect_error) {
    <?php
 
 $sql = "Select movieID, Title, Image from Movie";
- $stmt = $ConnectingDB->query($sql);
+ $stmt = $conn->query($sql);
                     while ($DataRows = $stmt->fetch()) {
                       $Image = $DataRows["Image"];
 ?>
