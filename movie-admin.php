@@ -115,7 +115,6 @@ if ($result->num_rows > 0) {
           </tr>
 
     }
-    <?php require_once("footer.php"); ?>
    <?php
   }
 } else {
@@ -123,6 +122,4 @@ if ($result->num_rows > 0) {
 }
 $conn->close();
 ?>
-}
-}
-    }
+   <?php require_once("footer.php"); ?>
