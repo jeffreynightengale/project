@@ -78,27 +78,27 @@ if ($result->num_rows > 0) {
                     <td><?=$row["Image"]?></td>
                 <td><?=$row["Trailer"]?></td>
  <td>
-              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editMovie<?=$row["movieid"]?>">
+              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editMovie<?=$row["movieID"]?>">
                 Edit
               </button>
-              <div class="modal fade" id="editMovie<?=$row["movieid"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editMovie<?=$row["movieid"]?>Label" aria-hidden="true">
+              <div class="modal fade" id="editMovie<?=$row["movieID"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editMovie<?=$row["movieID"]?>Label" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="editMovie<?=$row["movieid"]?>Label">Edit Movie</h1>
+                      <h1 class="modal-title fs-5" id="editMovie<?=$row["movieID"]?>Label">Edit Movie</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                       <form method="post" action="">
                         <div class="mb-3">
-                          <label for="editMovie<?=$row["movieid"]?>Name" class="form-label">Title</label>
-                          <input type="text" class="form-control" id="editManager<?=$row["movieid"]?>Name" aria-describedby="editMovie<?=$row["movieid"]?>Help" name="mTitle" value="<?=$row['Title']?>">
-                          <div id="editMovie<?=$row["movieid"]?>Help" class="form-text">Enter the new title.</div>
+                          <label for="editMovie<?=$row["movieID"]?>Name" class="form-label">Title</label>
+                          <input type="text" class="form-control" id="editManager<?=$row["movieID"]?>Name" aria-describedby="editMovie<?=$row["movieID"]?>Help" name="mTitle" value="<?=$row['Title']?>">
+                          <div id="editMovie<?=$row["movieID"]?>Help" class="form-text">Enter the new title.</div>
                           <div class="mb-3">
-                           <label for="editMovie<?=$row["movieid"]?>Name" class="form-label">Starring</label>
-                          <input type="text" class="form-control" id="editManager<?=$row["movieid"]?>Name" aria-describedby="editMovie<?=$row["movieid"]?>Help" name="mStarring" value="<?=$row['Starring']?>">
-                          <div id="editMovie<?=$row["movieid"]?>Help" class="form-text">Add actors.</div>
-                            <input type="hidden" name="mid" value="<?=$row['movieid']?>">
+                           <label for="editMovie<?=$row["movieID"]?>Name" class="form-label">Starring</label>
+                          <input type="text" class="form-control" id="editManager<?=$row["movieID"]?>Name" aria-describedby="editMovie<?=$row["movieID"]?>Help" name="mStarring" value="<?=$row['Starring']?>">
+                          <div id="editMovie<?=$row["movieID"]?>Help" class="form-text">Add actors.</div>
+                            <input type="hidden" name="mid" value="<?=$row['movieID']?>">
                         <input type="hidden" name="saveType" value="Edit">
                         <input type="submit" class="btn btn-primary" value="Submit">
                             </form>
@@ -109,7 +109,7 @@ if ($result->num_rows > 0) {
             </td>
             <td>
               <form method="post" action="">
-                <input type="hidden" name="mid" value="<?=$row["movieid"]?>" />
+                <input type="hidden" name="mid" value="<?=$row["movieID"]?>" />
                 <input type="hidden" name="saveType" value="Delete">
                 <input type="submit" class="btn" onclick="return confirm('Are you sure?')" value="Delete">
               </form>
