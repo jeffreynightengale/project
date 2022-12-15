@@ -58,8 +58,7 @@ if ($result->num_rows > 0) {
   <!-- The slideshow -->
     <div class="carousel-item active" style="background-image: url('uploads/<?php echo $Image; ?>')">>
     </div>
-<?php } ?>
-   </div>
+                    
   <!-- Left and right controls -->
   <a class="carousel-control-prev" href="#demo" data-slide="prev">
     <span class="carousel-control-prev-icon"></span>
