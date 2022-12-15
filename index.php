@@ -39,6 +39,8 @@ if ($conn->connect_error) {
 
 $sql = "Select movieID, Title, Image from Movie";
 $result = $conn->query($sql);
+while ($DataRows = $stmt->fetch()) {
+                      $Image = $DataRows["Image"];
 
 if ($result->num_rows > 0) {
   // output data of each row
@@ -54,11 +56,8 @@ if ($result->num_rows > 0) {
   </ol>
   
   <!-- The slideshow -->
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src=<?=$row["Image"]?> class="d-block w-100">
+    <div class="carousel-item active" style="background-image: url('uploads/<?php echo $Image; ?>')">>
     </div>
-  </div>
 
   <!-- Left and right controls -->
   <a class="carousel-control-prev" href="#demo" data-slide="prev">
