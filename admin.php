@@ -1,3 +1,4 @@
+<?php require_once("header.php"); ?>
 <style>
 
         .login-form {
@@ -76,7 +77,7 @@
 
           var values = $('#password').val();
 
-          if(values == "YOUR PASSWORD") {
+          if(values == "1234") {
 
             location ="movie-admin.php";
 
