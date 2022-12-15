@@ -90,12 +90,31 @@ if ($result->num_rows > 0) {
                       <form method="post" action="">
                         <div class="mb-3">
                           <label for="editMovie<?=$row["movieID"]?>Name" class="form-label">Title</label>
-                          <input type="text" class="form-control" id="editManager<?=$row["movieID"]?>Name" aria-describedby="editMovie<?=$row["movieID"]?>Help" name="mTitle" value="<?=$row['Title']?>">
+                          <input type="text" class="form-control" id="editMovie<?=$row["movieID"]?>Name" aria-describedby="editMovie<?=$row["movieID"]?>Help" name="mTitle" value="<?=$row['Title']?>">
                           <div id="editMovie<?=$row["movieID"]?>Help" class="form-text">Enter the new title.</div>
                           <div class="mb-3">
-                           <label for="editMovie<?=$row["movieID"]?>Name" class="form-label">Starring</label>
-                          <input type="text" class="form-control" id="editManager<?=$row["movieID"]?>Name" aria-describedby="editMovie<?=$row["movieID"]?>Help" name="mStarring" value="<?=$row['Starring']?>">
+                           <label for="editMovie<?=$row["movieID"]?>Starring" class="form-label">Starring</label>
+                          <input type="text" class="form-control" id="editMovie<?=$row["movieID"]?>Name" aria-describedby="editMovie<?=$row["movieID"]?>Help" name="mStarring" value="<?=$row['Starring']?>">
                           <div id="editMovie<?=$row["movieID"]?>Help" class="form-text">Add actors.</div>
+                             <div class="mb-3">
+                          <label for="editMovie<?=$row["movieID"]?>Director" class="form-label">Director</label>
+                          <input type="text" class="form-control" id="editMovie<?=$row["movieID"]?>Director" aria-describedby="editMovie<?=$row["movieID"]?>Help" name="mDirector" value="<?=$row['Director']?>">
+                          <div id="editMovie<?=$row["movieID"]?>Help" class="form-text">Enter the new director.</div>
+                          <div class="mb-3">
+                           <label for="editMovie<?=$row["movieID"]?>Duration" class="form-label">Duration</label>
+                          <input type="text" class="form-control" id="editMovie<?=$row["movieID"]?>Duration" aria-describedby="editMovie<?=$row["movieID"]?>Help" name="mDuration" value="<?=$row['Duration']?>">
+                          <div id="editMovie<?=$row["movieID"]?>Help" class="form-text">Edit duration.</div>
+                             <div class="mb-3">
+                          <label for="editMovie<?=$row["movieID"]?>Summary" class="form-label">Summary</label>
+                          <input type="text" class="form-control" id="editMovie<?=$row["movieID"]?>Summary" aria-describedby="editMovie<?=$row["movieID"]?>Help" name="mSummary" value="<?=$row['Summary']?>">
+                          <div id="editMovie<?=$row["movieID"]?>Help" class="form-text">Enter the new summary.</div>
+                          <div class="mb-3">
+                           <label for="editMovie<?=$row["movieID"]?>Image" class="form-label">Image</label>
+                          <input type="text" class="form-control" id="editMovie<?=$row["movieID"]?>Image" aria-describedby="editMovie<?=$row["movieID"]?>Help" name="mImage" value="<?=$row['Image']?>">
+                          <div id="editMovie<?=$row["movieID"]?>Help" class="form-text">Add image url.</div>
+                            <label for="editMovie<?=$row["movieID"]?>Trailer" class="form-label">Trailer</label>
+                          <input type="text" class="form-control" id="editMovie<?=$row["movieID"]?>Name" aria-describedby="editMovie<?=$row["movieID"]?>Help" name="mTrailer" value="<?=$row['Trailer']?>">
+                          <div id="editMovie<?=$row["movieID"]?>Help" class="form-text">Add trailer.</div>000
                             <input type="hidden" name="mid" value="<?=$row['movieID']?>">
                         <input type="hidden" name="saveType" value="Edit">
                         <input type="submit" class="btn btn-primary" value="Submit">
@@ -139,9 +158,39 @@ $conn->close();
             <div class="modal-body">
               <form method="post" action="">
                 <div class="mb-3">
-                  <label for="supervisorName" class="form-label">Movie Title</label>
+                  <label for="movieTitle" class="form-label">Movie Title</label>
                   <input type="text" class="form-control" id="movieTitle" aria-describedby="nameHelp" name="mTitle">
                   <div id="nameHelp" class="form-text">Enter the movie's title.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="movieStarring" class="form-label">Movie Starring</label>
+                  <input type="text" class="form-control" id="movieStarring" aria-describedby="nameHelp" name="mStarring">
+                  <div id="nameHelp" class="form-text">Enter the movie's cast.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="movieDirector" class="form-label">Movie Director</label>
+                  <input type="text" class="form-control" id="movieDirector" aria-describedby="nameHelp" name="mDirector">
+                  <div id="nameHelp" class="form-text">Enter the movie's director.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="movieDuration" class="form-label">Movie Duration</label>
+                  <input type="text" class="form-control" id="movieDuration" aria-describedby="nameHelp" name="mDuration">
+                  <div id="nameHelp" class="form-text">Enter the movie's duration (ex. #h #m).</div>
+                </div>
+                <div class="mb-3">
+                  <label for="movieSummary" class="form-label">Movie Summary</label>
+                  <input type="text" class="form-control" id="movieSummary" aria-describedby="nameHelp" name="mSummary">
+                  <div id="nameHelp" class="form-text">Enter the movie's summary.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="movieImage" class="form-label">Movie Image</label>
+                  <input type="text" class="form-control" id="movieImage" aria-describedby="nameHelp" name="mImage">
+                  <div id="nameHelp" class="form-text">Enter the movie's picture.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="movieTrailer" class="form-label">Movie Trailer</label>
+                  <input type="text" class="form-control" id="movieTrailer" aria-describedby="nameHelp" name="mTrailer">
+                  <div id="nameHelp" class="form-text">Enter the movie's trailer.</div>
                 </div>
                 <input type="hidden" name="saveType" value="Add">
                 <button type="submit" class="btn btn-primary">Submit</button>
