@@ -47,13 +47,15 @@ if ($conn->connect_error) {
    <?php
 
 $sql = "Select movieID, Title, Image from Movie";
- $stmt = $conn->query($sql);
-                    while ($DataRows = $stmt->fetch()) {
-                      $Image = $DataRows["Image"];
+ $result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
 ?>
   
   <!-- The slideshow -->
-    <div class="carousel-item active" style="background-image: url('uploads/<?php echo $Image; ?>')">>
+    <div class="carousel-item active" style="background-image: url('uploads/<?php echo <?=$row["image"]?>; ?>')">>
     </div>
       <?php } ?>         
   <!-- Left and right controls -->
