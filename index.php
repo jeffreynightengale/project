@@ -69,9 +69,6 @@ if ($result->num_rows > 0) {
   </a>
 
 </div>
-
-    
-    
     <div class="text-center">
      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addMember">
         Become a Member!
@@ -109,12 +106,13 @@ if ($result->num_rows > 0) {
         </div>
       </div>
     </div>
-
-
-
-
-
-
+<?php
+  }
+} else {
+  echo "0 results";
+}
+$conn->close();
+?>
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 
 
