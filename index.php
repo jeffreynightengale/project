@@ -37,6 +37,7 @@ if ($conn->connect_error) {
   <h1>Featured Movies:</h1>
 </div>
 
+<?php
 $sql = "Select movieID, Title, Image from Movie";
 $result = $conn->query($sql);
 
