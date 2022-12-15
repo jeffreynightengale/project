@@ -56,7 +56,7 @@ if ($result->num_rows > 0) {
   
   <!-- The slideshow -->
   <div class="carousel-inner">
-    <div class="carousel-item active">
+    <div class="item">
       <img src=<?=$row["Image"]?> alt="...">
     </div>
     </div>
