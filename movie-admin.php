@@ -41,8 +41,7 @@ if ($conn->connect_error) {
      }
     ?>
     
-      <h2>Employee</h2>
-    
+      <h2>Employee</h2>   
 <table class="table table-striped">
   <thead>
     <tr>
@@ -114,8 +113,6 @@ if ($result->num_rows > 0) {
               </form>
             </td>
           </tr>
-
-    }
    <?php
   }
 } else {
@@ -123,4 +120,35 @@ if ($result->num_rows > 0) {
 }
 $conn->close();
 ?>
+     </tbody>
+      </table>
+      <br />
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addMovie">
+        Add New
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="addMovie" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addMovieLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="addMovieLabel">Add Movie</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form method="post" action="">
+                <div class="mb-3">
+                  <label for="supervisorName" class="form-label">Movie Title</label>
+                  <input type="text" class="form-control" id="movieTitle" aria-describedby="nameHelp" name="mTitle">
+                  <div id="nameHelp" class="form-text">Enter the movie's title.</div>
+                </div>
+                <input type="hidden" name="saveType" value="Add">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
    <?php require_once("footer.php"); ?>
