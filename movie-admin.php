@@ -114,7 +114,7 @@ if ($result->num_rows > 0) {
                           <div id="editMovie<?=$row["movieID"]?>Help" class="form-text">Add image url.</div>
                             <label for="editMovie<?=$row["movieID"]?>Trailer" class="form-label">Trailer</label>
                           <input type="text" class="form-control" id="editMovie<?=$row["movieID"]?>Name" aria-describedby="editMovie<?=$row["movieID"]?>Help" name="mTrailer" value="<?=$row['Trailer']?>">
-                          <div id="editMovie<?=$row["movieID"]?>Help" class="form-text">Add trailer.</div>000
+                          <div id="editMovie<?=$row["movieID"]?>Help" class="form-text">Add trailer.</div>
                             <input type="hidden" name="mid" value="<?=$row['movieID']?>">
                         <input type="hidden" name="saveType" value="Edit">
                         <input type="submit" class="btn btn-primary" value="Submit">
