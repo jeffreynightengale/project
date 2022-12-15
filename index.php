@@ -47,12 +47,9 @@ if ($conn->connect_error) {
    <?php
 
 $sql = "Select movieID, Title, Image from Movie";
-$result = $conn->query($sql);
-                   
-if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-    $Image = $row["Image"];
+ $stmt = $ConnectingDB->query($sql);
+                    while ($DataRows = $stmt->fetch()) {
+                      $Image = $DataRows["Image"];
 ?>
   
   <!-- The slideshow -->
