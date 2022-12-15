@@ -29,6 +29,8 @@ if ($conn->connect_error) {
             <th> Summary</th>
        <th> Image </th>
             <th> Trailer</th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
