@@ -79,7 +79,7 @@ if ($result->num_rows > 0) {
                       <form method="post" action="">
                         <div class="mb-3">
                           <label for="editMenu<?=$row["foodID"]?>Name" class="form-label">Food</label>
-                          <input type="text" class="form-control" id="editMenu<?=$row["foodID"]?>Name" aria-describedby="editMenu<?=$row["menuID"]?>Help" name="mFood" value="<?=$row['Food_name']?>">
+                          <input type="text" class="form-control" id="editMenu<?=$row["foodID"]?>Name" aria-describedby="editMenu<?=$row["foodID"]?>Help" name="mFood" value="<?=$row['Food_name']?>">
                           <div id="editMenu<?=$row["foodID"]?>Help" class="form-text">Enter the new food name.</div>
                           <div class="mb-3">
                            <label for="editMenu<?=$row["foodID"]?>Price" class="form-label">Price</label>
