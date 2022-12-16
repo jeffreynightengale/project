@@ -24,7 +24,7 @@ if ($conn->connect_error) {
          case 'Edit':
       $sqlEdit = "update Ticket set Showtime=?, movieID=?, Seat=?, memberID=?, foodID=? where ticketID=?";
       $stmtEdit = $conn->prepare($sqlEdit);
-    $stmtEdit->bind_param("sisii", $_POST['tShowtime'], $_POST['tMovieid'], $_POST['tSeat'], $_POST['tMemberid'], $_POST['tFoodid']);
+    $stmtEdit->bind_param("sisiii", $_POST['tShowtime'], $_POST['tMovieid'], $_POST['tSeat'], $_POST['tMemberid'], $_POST['tFoodid'], $_POST['tid']);
       $stmtEdit->execute();
       echo '<div class="alert alert-success" role="alert">Ticket edited.</div>';
       break;
