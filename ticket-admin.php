@@ -117,7 +117,7 @@ if ($conn->connect_error) {
   <tbody>
     <?php
  
-$sql = "Select * from Ticket";
+$sql = "Select * from Ticket T Join Movie M on M.movieID=T.movieID";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
