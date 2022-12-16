@@ -37,16 +37,6 @@ if ($conn->connect_error) {
   }
 }
 ?>
-
-   <?php
-
-$sql = "Select movieID, Title, Image from Movie";
- $result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-?>
   
   <!-- The slideshow -->
  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -70,14 +60,6 @@ if ($result->num_rows > 0) {
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-?>
-
-<?php
-  }
-} else {
-  echo "0 results";
-}
-$conn->close();
 ?>
 
 ?>
