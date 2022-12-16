@@ -22,7 +22,7 @@ if ($conn->connect_error) {
       echo '<div class="alert alert-success" role="alert">Member added.</div>';
       break;
          case 'Edit':
-      $sqlEdit = "update Reward set Email=?, Name=?";
+      $sqlEdit = "update Reward set Email=?, Name=? where memberID=?"";
       $stmtEdit = $conn->prepare($sqlEdit);
       $stmtEdit->bind_param("ss", $_POST['mEmail'], $_POST['mName']);
       $stmtEdit->execute();
