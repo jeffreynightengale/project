@@ -21,6 +21,20 @@ if ($conn->connect_error) {
     $stmtAdd->execute();
       echo '<div class="alert alert-success" role="alert">Ticket now in system.</div>';
       break;
+         case 'Edit':
+      $sqlEdit = "update Ticket set Showtime=?, movieID=?, Seat=?, memberID=?, foodID=?";
+      $stmtEdit = $conn->prepare($sqlEdit);
+    $stmtAdd->bind_param("sisii", $_POST['tShowtime'], $_POST['tMovieid'], $_POST['tSeat'], $_POST['tMemberid'], $_POST['tFoodid']);
+      $stmtEdit->execute();
+      echo '<div class="alert alert-success" role="alert">Ticket edited.</div>';
+      break;
+    case 'Delete':
+      $sqlDelete = "delete from Ticket where ticketID=?";
+      $stmtDelete = $conn->prepare($sqlDelete);
+      $stmtDelete->bind_param("i", $_POST['tid']);
+      $stmtDelete->execute();
+      echo '<div class="alert alert-success" role="alert">Ticket deleted.</div>';
+      break;
   }
      }
     ?>
@@ -129,6 +143,132 @@ if ($result->num_rows > 0) {
     <td><?=$row["Seat"]?></td>
        <td><?=$row["memberID"]?></td>
     <td><?=$row["Title"]?></td>
+    
+    
+    
+    
+        <td>
+                  <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editTicket<?=$row["ticketID"]?>">
+                    Edit
+                  </button>
+                  <div class="modal fade" id="editTicket<?=$row["ticketID"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editTicket<?=$row["ticketID"]?>Label" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="editTicket<?=$row["ticketID"]?>Label">Edit Ticket</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <form method="post" action="">
+                            <div class="mb-3">
+                              <label for="editTicket<?=$row["ticketID"]?>Showtime" class="form-label">Showtime</label>
+                              <input type="text" class="form-control" id="editTicket<?=$row["ticketID"]?>Showtime" aria-describedby="editTicket<?=$row["ticketID"]?>Help" name="tShowtime" value="<?=$row['Showtime']?>">
+                              <div id="editTicket<?=$row["ticketID"]?>Help" class="form-text">Enter the movie's showtime.</div>
+                            </div>
+                           <div class="mb-3">
+                              <label for="editSeat<?=$row["ticketID"]?>Seat" class="form-label">Seat</label>
+                              <input type="text" class="form-control" id="editTicket<?=$row["ticketID"]?>Seat" aria-describedby="editTicket<?=$row["ticketID"]?>Help" name="tSeat" value="<?=$row['Seat']?>">
+                              <div id="editTicket<?=$row["ticketID"]?>Help" class="form-text">Enter the ticket's seat.</div>
+                            </div>
+
+
+ <div class="mb-3">
+                            <label for="MovieList" class="form-label">Movie</label>
+                            <select class="form-select" aria-label="Select Movie" id="movieList" name="tMovieid" value="<?=$row['movieID']?>">
+                          <?php
+                              $ticketeditSql = "select Title, movieID from Movie order by Title";
+                              $ticketeditResult = $conn->query($ticketeditSql);
+                              while($ticketeditRow = $ticketeditResult->fetch_assoc()) {
+                                 if ($eventRow['movieID'] == $row['movieID']) {
+                                  $selText = " selected";
+                                } else {
+                                  $selText = "";
+                                }
+                                
+                         ?>
+                               <option value="<?=$ticketeditRow['movieID']?>"><?=$ticketeditRow['Title']?></option>
+                         <?php
+                              }
+                         ?>
+                           </select>
+                       </div>
+<div class="mb-3">
+                            <label for="MemberList" class="form-label">Member</label>
+                            <select class="form-select" aria-label="Select Member" id="memberList" name="tMemberid" value="<?=$row['memberID']?>">
+                          <?php
+                              $tickeditSql = "select Name, memberID from Reward order by Name";
+                              $tickeditResult = $conn->query($tickeditSql);
+                              while($tickeditRow = $tickeditResult->fetch_assoc()) {
+                                 if ($eventRow['memberID'] == $row['memberID']) {
+                                  $selText = " selected";
+                                } else {
+                                  $selText = "";
+                                }
+                                
+                         ?>
+                               <option value="<?=$tickeditRow['memberID']?>"><?=$tickeditRow['Name']?></option>
+                         <?php
+                              }
+                         ?>
+                           </select>
+                       </div>
+<div class="mb-3">
+                            <label for="FoodList" class="form-label">Snack</label>
+                            <select class="form-select" aria-label="Select Snack" id="foodList" name="tFoodid" value="<?=$row['foodID']?>">
+                          <?php
+                              $snackeditSql = "select Food_name, foodID from Menu order by Food_name";
+                              $snackeditResult = $conn->query($snackeditSql);
+                              while($snackeditRow = $snackeditResult->fetch_assoc()) {
+                                 if ($eventRow['foodID'] == $row['foodID']) {
+                                  $selText = " selected";
+                                } else {
+                                  $selText = "";
+                                }
+                                
+                         ?>
+                               <option value="<?=$snackeditRow['foodID']?>"><?=$snackeditRow['Food_name']?></option>
+                         <?php
+                              }
+                         ?>
+                           </select>
+                       </div>
+
+                 
+
+                            <input type="hidden" name="tid" value="<?=$row['ticketID']?>">
+                            <input type="hidden" name="saveType" value="Edit">
+                            <input type="submit" class="btn btn-primary" value="Submit">
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </td>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     <td>
+              <form method="post" action="">
+                <input type="hidden" name="tid" value="<?=$row["ticketID"]?>" />
+                <input type="hidden" name="saveType" value="Delete">
+                <input type="submit" class="btn" onclick="return confirm('Are you sure?')" value="Delete">
+              </form>
+            </td>
    <?php
   }
 } else {
