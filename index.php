@@ -42,7 +42,7 @@ if ($conn->connect_error) {
 
 <div class="text-center">
  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner" style="width:20%">
+  <div class="carousel-inner" align="center" style="width:20%">
     <div class="carousel-item active">
       <img src="https://m.media-amazon.com/images/M/MV5BYzZkOGUwMzMtMTgyNS00YjFlLTg5NzYtZTE3Y2E5YTA5NWIyXkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_.jpg" class="d-block w-100" alt="...">
     </div>
