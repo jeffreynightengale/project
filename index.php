@@ -37,13 +37,7 @@ if ($conn->connect_error) {
   }
 }
 ?>
- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                  <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                  </ol>
-                  <div class="carousel-inner" role="listbox">
+
    <?php
 
 $sql = "Select movieID, Title, Image from Movie";
@@ -55,22 +49,27 @@ if ($result->num_rows > 0) {
 ?>
   
   <!-- The slideshow -->
+ <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
-    <div class="item">
-      <img src=<?=$row["Image"]?> alt="...">
+    <div class="carousel-item active">
+      <img src="https://m.media-amazon.com/images/M/MV5BYzZkOGUwMzMtMTgyNS00YjFlLTg5NzYtZTE3Y2E5YTA5NWIyXkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_.jpg" class="d-block w-100" alt="...">
     </div>
+    <div class="carousel-item">
+      <img src="https://lumiere-a.akamaihd.net/v1/images/sandlot_584x800_us_56dada88.jpeg" class="d-block w-100" alt="...">
     </div>
-      <?php } } ?>         
-  <!-- Left and right controls -->
-  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </a>
-  <a class="carousel-control-next" href="#demo" data-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </a>
-
+    <div class="carousel-item">
+      <img src="https://m.media-amazon.com/images/M/MV5BZWYzOGEwNTgtNWU3NS00ZTQ0LWJkODUtMmVhMjIwMjA1ZmQwXkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
-$conn->close();
 ?>
 
     <div class="text-center">
@@ -115,4 +114,6 @@ $conn->close();
 
 
 </body>
+<?$conn->close();
+?>
     <?php require_once('footer.php'); ?>
