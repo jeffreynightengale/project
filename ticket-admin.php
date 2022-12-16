@@ -17,7 +17,7 @@ if ($conn->connect_error) {
        case 'Add':
       $sqlAdd = "insert into Ticket (Showtime, movieID, Seat, memberID, foodID) value (?, ?, ?, ?, ?)";
       $stmtAdd = $conn->prepare($sqlAdd);
-    $stmtAdd->bind_param("ss", $_POST['tShowtime'], $_POST['tMovieid'], $_POST['tSeat'], $_POST['tMemberid'], $_POST['tFoodid']);
+    $stmtAdd->bind_param("sisii", $_POST['tShowtime'], $_POST['tMovieid'], $_POST['tSeat'], $_POST['tMemberid'], $_POST['tFoodid']);
     $stmtAdd->execute();
       echo '<div class="alert alert-success" role="alert">Ticket now in system.</div>';
       break;
