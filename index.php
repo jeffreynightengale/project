@@ -40,9 +40,8 @@ if ($conn->connect_error) {
   
   <!-- The slideshow -->
 
-<div class="text-center">
- <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner" align="center" style="width:20%">
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" align="center">
+  <div class="carousel-inner" style="width:20%">
     <div class="carousel-item active">
       <img src="https://m.media-amazon.com/images/M/MV5BYzZkOGUwMzMtMTgyNS00YjFlLTg5NzYtZTE3Y2E5YTA5NWIyXkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_.jpg" class="d-block w-100" alt="...">
     </div>
@@ -62,7 +61,7 @@ if ($conn->connect_error) {
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-</div>
+
 
     <div class="text-center">
      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addMember">
