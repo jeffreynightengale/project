@@ -39,6 +39,8 @@ if ($conn->connect_error) {
 ?>
   
   <!-- The slideshow -->
+
+<div class="text-center">
  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner" style="width:20%">
     <div class="carousel-item active">
@@ -59,6 +61,7 @@ if ($conn->connect_error) {
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
+</div>
 </div>
 
     <div class="text-center">
