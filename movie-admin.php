@@ -29,7 +29,7 @@ if ($conn->connect_error) {
       echo '<div class="alert alert-success" role="alert">Movie edited.</div>';
       break;
     case 'Delete':
-      $sqlDelete = "delete from Movie where MovieID=?";
+      $sqlDelete = "delete from Movie where movieID=?";
       $stmtDelete = $conn->prepare($sqlDelete);
       $stmtDelete->bind_param("i", $_POST['mid']);
       $stmtDelete->execute();
