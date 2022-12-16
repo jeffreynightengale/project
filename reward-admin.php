@@ -24,7 +24,7 @@ if ($conn->connect_error) {
          case 'Edit':
       $sqlEdit = "update Reward set Email=?, Name=? where memberID=?";
       $stmtEdit = $conn->prepare($sqlEdit);
-      $stmtEdit->bind_param("ss", $_POST['mEmail'], $_POST['mName']);
+      $stmtEdit->bind_param("ssi", $_POST['mEmail'], $_POST['mName'], $_POST['mid']);
       $stmtEdit->execute();
       echo '<div class="alert alert-success" role="alert">Member edited.</div>';
       break;
