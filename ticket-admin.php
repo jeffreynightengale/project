@@ -49,6 +49,20 @@ if ($conn->connect_error) {
                   <input type="text" class="form-control" id="ticketShowtime" aria-describedby="nameHelp" name="tShowtime">
                   <div id="nameHelp" class="form-text">Enter the showtime.</div>
                 </div>
+                  <div class="mb-3">
+                            <label for="MovieList" class="form-label">Movie</label>
+                            <select class="form-select" aria-label="Select Movie" id="movieList" name="tMovieid" >
+                          <?php
+                              $ticketaddSql = "select Title, movieID from Movie order by Title";
+                              $ticketaddResult = $conn->query($ticketaddSql);
+                              while($ticketaddRow = $ticketaddResult->fetch_assoc()) {
+                         ?>
+                               <option value="<?=$ticketaddRow['movieID']?>"><?=$ticketaddRow['Title']?></option>
+                         <?php
+                              }
+                         ?>
+                           </select>
+                       </div>
                 <div class="mb-3">
                   <label for="movieID" class="form-label">Movie ID</label>
                   <input type="text" class="form-control" id="movieID" aria-describedby="nameHelp" name="tMovieid">
@@ -60,15 +74,33 @@ if ($conn->connect_error) {
                   <div id="nameHelp" class="form-text">Enter the seat.</div>
                 </div>
                 <div class="mb-3">
-                  <label for="memberID" class="form-label">Member ID</label>
-                  <input type="text" class="form-control" id="memberID" aria-describedby="nameHelp" name="tMemberid">
-                  <div id="nameHelp" class="form-text">Enter the member ID.</div>
-                </div>
-                <div class="mb-3">
-              <label for="foodID" class="form-label">Food ID</label>
-                  <input type="text" class="form-control" id="foodID" aria-describedby="nameHelp" name="tFoodid">
-                  <div id="nameHelp" class="form-text">Enter the food ID.</div>
-                </div>
+                            <label for="MemberList" class="form-label">Member</label>
+                            <select class="form-select" aria-label="Select Member" id="memberList" name="tMemberid" >
+                          <?php
+                              $ticketaddSql = "select Name, memberID from Reward order by Name";
+                              $ticketaddResult = $conn->query($ticketaddSql);
+                              while($ticketaddRow = $ticketaddResult->fetch_assoc()) {
+                         ?>
+                               <option value="<?=$ticketaddRow['memberID']?>"><?=$ticketaddRow['Name']?></option>
+                         <?php
+                              }
+                         ?>
+                           </select>
+                       </div>
+                 <div class="mb-3">
+                            <label for="FoodList" class="form-label">Snack</label>
+                            <select class="form-select" aria-label="Select Snack" id="foodList" name="fid" >
+                          <?php
+                              $snackaddSql = "select Food_name, foodID from Menu order by Food_name";
+                              $snackaddResult = $conn->query($snackaddSql);
+                              while($snackaddRow = $snackaddResult->fetch_assoc()) {
+                         ?>
+                               <option value="<?=$snackaddRow['foodID']?>"><?=$snackaddRow['Food_name']?></option>
+                         <?php
+                              }
+                         ?>
+                           </select>
+                       </div>
                 <input type="hidden" name="saveType" value="Add">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
