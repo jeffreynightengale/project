@@ -63,11 +63,7 @@ if ($conn->connect_error) {
                          ?>
                            </select>
                        </div>
-                <div class="mb-3">
-                  <label for="movieID" class="form-label">Movie ID</label>
-                  <input type="text" class="form-control" id="movieID" aria-describedby="nameHelp" name="tMovieid">
-                  <div id="nameHelp" class="form-text">Enter the movie ID.</div>
-                </div>
+             
                 <div class="mb-3">
                 <label for="ticketSeat" class="form-label">Seat</label>
                   <input type="text" class="form-control" id="ticketSeat" aria-describedby="nameHelp" name="tSeat">
