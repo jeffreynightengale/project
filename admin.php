@@ -65,7 +65,7 @@
 
     <div class="login-form" style="margin: 0; position: absolute; top: 50%; left: 40%; -ms-transform: translateY(-50%); transform: translateY(-50%);">
 
-      <form action="auth" method="POST">
+      <form action="movie-admin.php" method="POST">
 
         <input type="password" name="password" id="password" placeholder="Password" required>
 
