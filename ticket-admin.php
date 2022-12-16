@@ -111,7 +111,7 @@ if ($conn->connect_error) {
       <th>Showtime</th>
             <th>Seat</th>
             <th>Member ID</th>
-      <th>Movie ID</th>
+      <th>Movie</th>
     </tr>
   </thead>
   <tbody>
@@ -128,7 +128,7 @@ if ($result->num_rows > 0) {
     <td><?=$row["Showtime"]?></td>
     <td><?=$row["Seat"]?></td>
        <td><?=$row["memberID"]?></td>
-    <td><?=$row["movieID"]?></td>
+    <td><?=$row["Title"]?></td>
    <?php
   }
 } else {
